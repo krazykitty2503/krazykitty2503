@@ -140,7 +140,7 @@ An interconnected collection of projects, experiments, infrastructure and future
 | 🐈 **KITTY//LINUX** | Custom Linux distribution | Long-term Plan |
 | ⚙️ **AETHER//RUST** | Experimental Rust operating system | Research / Planned |
 | 💻 **KITTY//DESKTOP** | Custom desktop experience | Concept / Planned |
-| ❤️ **SOUL//LINK** | Creative communication and shared experiences | Project Ecosystem |
+| 💜 **SOUL//LINK** | Creative communication and shared experiences | Project Ecosystem |
 
 *Project stages describe my development journey, not production-readiness guarantees.*
 
