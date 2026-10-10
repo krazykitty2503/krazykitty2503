@@ -35,7 +35,7 @@ CARD_SPECS = {
 
 ACTIVITY_CARD_SPECS = {
     "contribution-calendar.svg": "CONTRIBUTION MATRIX",
-    "activity-streak.svg": "ACTIVITY PULSE",
+    "activity-pulse.svg": "ACTIVITY PULSE",
 }
 
 HEX_COLOR = re.compile(r"#[0-9a-fA-F]{6}(?:[0-9a-fA-F]{2})?\b")

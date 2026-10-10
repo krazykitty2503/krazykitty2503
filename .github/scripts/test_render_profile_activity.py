@@ -33,7 +33,7 @@ class RenderProfileActivityTests(unittest.TestCase):
         (directory / "contribution-calendar.svg").write_text(
             render_contribution_calendar(days), encoding="utf-8"
         )
-        (directory / "activity-streak.svg").write_text(
+        (directory / "activity-pulse.svg").write_text(
             render_activity_streak(days, aggregate), encoding="utf-8"
         )
 
@@ -69,7 +69,7 @@ class RenderProfileActivityTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent) as temporary:
             directory = Path(temporary) / "assets"
             self._write_assets(directory)
-            path = directory / "activity-streak.svg"
+            path = directory / "activity-pulse.svg"
             path.write_text(path.read_text(encoding="utf-8").replace("</svg>", "<script/></svg>"), encoding="utf-8")
             with self.assertRaises(ValueError):
                 validate_activity_assets(directory)
@@ -80,8 +80,11 @@ class RenderProfileActivityTests(unittest.TestCase):
             source = root / "source"
             output = root / "output"
             self._write_assets(source)
+            output.mkdir()
+            (output / "activity-streak.svg").write_text("deprecated", encoding="utf-8")
             publish_assets(source, output)
             validate_activity_assets(output)
+            self.assertFalse((output / "activity-streak.svg").exists())
 
 
 if __name__ == "__main__":
