@@ -106,6 +106,10 @@ I'm still learning, still experimenting and definitely still breaking things alo
      alt="KrazyKitty GitHub contribution activity over the last year"
      width="98%" />
 
+<img src="assets/stats/contribution-calendar.svg"
+     alt="KrazyKitty ultraviolet contribution calendar"
+     width="98%" />
+
 <img src="assets/stats/github-stats.svg"
      alt="KrazyKitty GitHub statistics"
      width="49%" />
@@ -116,8 +120,11 @@ I'm still learning, still experimenting and definitely still breaking things alo
 <img src="assets/stats/languages-by-commit.svg"
      alt="KrazyKitty top languages by commit"
      width="49%" />
+<img src="assets/stats/activity-streak.svg"
+     alt="KrazyKitty activity streak and aggregate private repository statistics"
+     width="49%" />
 
-<sub>Refreshed daily by GitHub Actions from GitHub's public profile data.</sub>
+<sub>Refreshed daily by GitHub Actions. Private repository identities never appear; see <a href=".github/PROFILE_STATS.md">private aggregate setup</a>.</sub>
 
 </div>
 
