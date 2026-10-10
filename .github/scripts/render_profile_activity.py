@@ -280,7 +280,7 @@ def _private_summary(aggregate: PrivateAggregate) -> str:
 def render_activity_streak(days: list[ContributionDay], aggregate: PrivateAggregate) -> str:
     current, longest = calculate_streaks(days)
     total = sum(item.count for item in days)
-    width, height = 420, 205
+    width, height = 420, 247
     parts = [_svg_header(width, height)]
     parts.append(
         f'<text x="24" y="32" fill="{PALETTE["amethyst"]}" font-size="19" font-weight="700">'
@@ -300,7 +300,7 @@ def render_activity_streak(days: list[ContributionDay], aggregate: PrivateAggreg
             f'font-size="14" font-weight="700">{escape(value)}</text>'
         )
     parts.append(
-        f'<text x="24" y="187" fill="{PALETTE["lavender"]}" font-size="9">'
+        f'<text x="24" y="229" fill="{PALETTE["lavender"]}" font-size="9">'
         f"{escape(_private_summary(aggregate))}</text>"
     )
     parts.append("</svg>")
