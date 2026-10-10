@@ -3,6 +3,7 @@
        alt="KRAZYKITTY // ULTRAVIOLET SYSTEM"
        width="100%" />
 </div>
+
 # 💜 KRAZYKITTY // DEVELOPMENT UNIVERSE
 
 <div align="center">
