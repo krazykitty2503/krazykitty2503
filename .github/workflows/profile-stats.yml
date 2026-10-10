@@ -6,7 +6,9 @@ on:
       - main
     paths:
       - ".github/workflows/profile-stats.yml"
+      - ".github/scripts/render_profile_activity.py"
       - ".github/scripts/style_profile_stats.py"
+      - ".github/scripts/test_render_profile_activity.py"
       - ".github/scripts/test_style_profile_stats.py"
   schedule:
     - cron: "17 3 * * *"
@@ -17,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  generate-artifact:
+  generate-summary-cards:
     if: github.repository == 'krazykitty2503/krazykitty2503'
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -51,19 +53,52 @@ jobs:
           --source profile-summary-card-output/midnight_purple
           --output assets/stats
 
-      - name: Validate generated SVG assets
+      - name: Validate generated summary cards
         run: python .github/scripts/style_profile_stats.py --check assets/stats
 
-      - name: Upload validated SVG artifact
+      - name: Upload validated summary-card artifact
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: ultraviolet-profile-statistics
+          name: ultraviolet-summary-cards
           path: assets/stats/*.svg
           if-no-files-found: error
           retention-days: 1
 
+  generate-activity-cards:
+    if: github.repository == 'krazykitty2503/krazykitty2503'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out the profile repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Verify the trusted activity renderer
+        run: python -m unittest discover -s .github/scripts -p "test_*.py" -v
+
+      - name: Render contribution and aggregate activity cards
+        env:
+          PUBLIC_GITHUB_TOKEN: ${{ github.token }}
+          PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
+        run: python .github/scripts/render_profile_activity.py --output .generated-activity
+
+      - name: Validate generated activity cards
+        run: python .github/scripts/render_profile_activity.py --check .generated-activity
+
+      - name: Upload validated activity-card artifact
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ultraviolet-activity-cards
+          path: .generated-activity/*.svg
+          if-no-files-found: error
+          retention-days: 1
+
   publish:
-    needs: generate-artifact
+    needs:
+      - generate-summary-cards
+      - generate-activity-cards
     if: github.repository == 'krazykitty2503/krazykitty2503'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -74,19 +109,26 @@ jobs:
       - name: Check out the profile repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Download generated SVG artifact
+      - name: Download generated summary cards
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
-          name: ultraviolet-profile-statistics
-          path: .generated-profile-statistics
+          name: ultraviolet-summary-cards
+          path: .generated-summary-cards
 
-      - name: Verify the trusted publisher
+      - name: Download generated activity cards
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ultraviolet-activity-cards
+          path: .generated-activity-cards
+
+      - name: Verify the trusted publishers
         run: python -m unittest discover -s .github/scripts -p "test_*.py" -v
 
       - name: Validate and publish fixed SVG assets
-        run: >-
-          python .github/scripts/style_profile_stats.py
-          --publish .generated-profile-statistics assets/stats
+        run: |
+          python .github/scripts/style_profile_stats.py --publish .generated-summary-cards assets/stats
+          python .github/scripts/render_profile_activity.py --publish .generated-activity-cards assets/stats
+          python .github/scripts/style_profile_stats.py --check-profile assets/stats
 
       - name: Commit refreshed assets
         run: |
