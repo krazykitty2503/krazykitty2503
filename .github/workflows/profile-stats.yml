@@ -82,16 +82,16 @@ jobs:
         env:
           PUBLIC_GITHUB_TOKEN: ${{ github.token }}
           PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
-        run: python .github/scripts/render_profile_activity.py --output .generated-activity
+        run: python .github/scripts/render_profile_activity.py --output generated-activity
 
       - name: Validate generated activity cards
-        run: python .github/scripts/render_profile_activity.py --check .generated-activity
+        run: python .github/scripts/render_profile_activity.py --check generated-activity
 
       - name: Upload validated activity-card artifact
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ultraviolet-activity-cards
-          path: .generated-activity/*.svg
+          path: generated-activity/*.svg
           if-no-files-found: error
           retention-days: 1
 
