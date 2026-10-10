@@ -237,14 +237,15 @@ def render_contribution_calendar(days: list[ContributionDay]) -> str:
             f'font-size="9">{label}</text>'
         )
 
-    month_columns: set[int] = set()
+    rendered_months: set[tuple[int, int]] = set()
     for item in days:
         column = (item.day - first_sunday).days // 7
         row = (item.day.weekday() + 1) % 7
         if not 0 <= column < 53:
             continue
-        if item.day.day <= 7 and column not in month_columns:
-            month_columns.add(column)
+        month_key = (item.day.year, item.day.month)
+        if item.day.day <= 7 and month_key not in rendered_months:
+            rendered_months.add(month_key)
             parts.append(
                 f'<text x="{start_x + column * step}" y="51" fill="{PALETTE["lavender"]}" '
                 f'font-size="9">{item.day.strftime("%b").upper()}</text>'
