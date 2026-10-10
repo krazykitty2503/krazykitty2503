@@ -29,8 +29,9 @@ PALETTE = {
 
 CARD_MARKERS = {
     "contribution-calendar.svg": "CONTRIBUTION MATRIX",
-    "activity-streak.svg": "ACTIVITY PULSE",
+    "activity-pulse.svg": "ACTIVITY PULSE",
 }
+DEPRECATED_CARD_NAMES = {"activity-streak.svg"}
 
 ALLOWED_SVG_ELEMENTS = {"g", "rect", "style", "svg", "text"}
 MAX_SVG_BYTES = 256 * 1024
@@ -280,7 +281,7 @@ def _private_summary(aggregate: PrivateAggregate) -> str:
 def render_activity_streak(days: list[ContributionDay], aggregate: PrivateAggregate) -> str:
     current, longest = calculate_streaks(days)
     total = sum(item.count for item in days)
-    width, height = 420, 205
+    width, height = 420, 247
     parts = [_svg_header(width, height)]
     parts.append(
         f'<text x="24" y="32" fill="{PALETTE["amethyst"]}" font-size="19" font-weight="700">'
@@ -300,7 +301,7 @@ def render_activity_streak(days: list[ContributionDay], aggregate: PrivateAggreg
             f'font-size="14" font-weight="700">{escape(value)}</text>'
         )
     parts.append(
-        f'<text x="24" y="187" fill="{PALETTE["lavender"]}" font-size="9">'
+        f'<text x="24" y="229" fill="{PALETTE["lavender"]}" font-size="9">'
         f"{escape(_private_summary(aggregate))}</text>"
     )
     parts.append("</svg>")
@@ -364,7 +365,7 @@ def generate_assets(output_dir: Path, username: str, public_token: str, private_
     (output_dir / "contribution-calendar.svg").write_text(
         render_contribution_calendar(days), encoding="utf-8", newline="\n"
     )
-    (output_dir / "activity-streak.svg").write_text(
+    (output_dir / "activity-pulse.svg").write_text(
         render_activity_streak(days, aggregate), encoding="utf-8", newline="\n"
     )
     validate_activity_assets(output_dir)
@@ -377,6 +378,8 @@ def publish_assets(source_dir: Path, output_dir: Path) -> None:
         temporary = (output_dir / filename).with_suffix(".svg.tmp")
         shutil.copyfile(source_dir / filename, temporary)
         temporary.replace(output_dir / filename)
+    for filename in DEPRECATED_CARD_NAMES:
+        (output_dir / filename).unlink(missing_ok=True)
 
 
 def parse_args() -> argparse.Namespace:
