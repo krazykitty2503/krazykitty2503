@@ -49,6 +49,17 @@ class RenderProfileActivityTests(unittest.TestCase):
             self.assertIn("PRIVATE AGGREGATES // 3 SELECTED REPOS", output)
             self.assertNotIn("repository-name", output)
 
+    def test_calendar_renders_each_month_label_once(self) -> None:
+        start = date(2025, 10, 1)
+        days = [
+            ContributionDay(start + timedelta(days=index), 1, "FIRST_QUARTILE")
+            for index in range(70)
+        ]
+        svg = render_contribution_calendar(days)
+        self.assertEqual(1, svg.count(">OCT</text>"))
+        self.assertEqual(1, svg.count(">NOV</text>"))
+        self.assertEqual(1, svg.count(">DEC</text>"))
+
     def test_private_aggregate_has_no_repository_identity_field(self) -> None:
         aggregate = PrivateAggregate(True, 1, (("Python", 100),))
         self.assertFalse(hasattr(aggregate, "repository_names"))
