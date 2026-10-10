@@ -98,7 +98,32 @@ I'm still learning, still experimenting and definitely still breaking things alo
 
 ---
 
-## `03 // FEATURED SYSTEMS`
+## `03 // GITHUB TELEMETRY`
+
+<div align="center">
+
+<img src="assets/stats/activity-overview.svg"
+     alt="KrazyKitty GitHub contribution activity over the last year"
+     width="98%" />
+
+<img src="assets/stats/github-stats.svg"
+     alt="KrazyKitty GitHub statistics"
+     width="49%" />
+<img src="assets/stats/languages-by-repository.svg"
+     alt="KrazyKitty top languages by repository"
+     width="49%" />
+
+<img src="assets/stats/languages-by-commit.svg"
+     alt="KrazyKitty top languages by commit"
+     width="49%" />
+
+<sub>Refreshed daily by GitHub Actions from GitHub's public profile data.</sub>
+
+</div>
+
+---
+
+## `04 // FEATURED SYSTEMS`
 
 Welcome to the **KRAZYKITTY // DEVELOPMENT UNIVERSE**.
 
@@ -121,7 +146,7 @@ An interconnected collection of projects, experiments, infrastructure and future
 
 ---
 
-## `04 // HOMELAB OPERATIONS`
+## `05 // HOMELAB OPERATIONS`
 
 My homelab is my personal playground for learning real-world system administration, infrastructure and cybersecurity.
 
@@ -149,7 +174,7 @@ I'm particularly interested in making infrastructure more reliable, understandab
 
 ---
 
-## `05 // WHAT I'M WORKING TOWARDS`
+## `06 // WHAT I'M WORKING TOWARDS`
 
 - [x] Build and maintain my own Debian homelab
 - [x] Begin my Equicord plugin development ecosystem
@@ -164,7 +189,7 @@ I'm particularly interested in making infrastructure more reliable, understandab
 
 ---
 
-## `06 // DESIGN DNA`
+## `07 // DESIGN DNA`
 
 ```css
 :root {
@@ -174,7 +199,6 @@ I'm particularly interested in making infrastructure more reliable, understandab
   --kitty-electric:  #8B5CF6;
   --kitty-amethyst:  #A855F7;
   --kitty-lavender:  #D8B4FE;
-  --kitty-crimson:   #E11D48;
   --kitty-silver:    #E2E0F0;
 }
 ```
@@ -185,7 +209,7 @@ I believe software should be **beautiful, functional, accessible and thoughtfull
 
 ---
 
-## `07 // MY ENGINEERING PHILOSOPHY`
+## `08 // MY ENGINEERING PHILOSOPHY`
 
 > **I don't build projects because I already know everything. I build them because I want to learn what I don't know yet.**
 
@@ -217,7 +241,7 @@ And every difficult problem is another reason to keep learning.
 
 ---
 
-## `08 // CONNECT WITH ME`
+## `09 // CONNECT WITH ME`
 
 <div align="center">
 

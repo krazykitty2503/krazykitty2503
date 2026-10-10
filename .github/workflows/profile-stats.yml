@@ -1,0 +1,103 @@
+name: Refresh profile statistics
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/profile-stats.yml"
+      - ".github/scripts/style_profile_stats.py"
+      - ".github/scripts/test_style_profile_stats.py"
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: profile-statistics-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate-artifact:
+    if: github.repository == 'krazykitty2503/krazykitty2503'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out the profile repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Verify the palette post-processor
+        run: python -m unittest discover -s .github/scripts -p "test_*.py" -v
+
+      - name: Generate maintained profile summary cards
+        uses: vn7n24fzkq/github-profile-summary-cards@d9632798b299e9ad6940449a859c30742eb5b549 # v0.12.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: krazykitty2503
+          BRANCH_NAME: main
+          UTC_OFFSET: "0"
+          EXCLUDE_REPOS: krazykitty2503
+          AUTO_PUSH: "false"
+          THEME: midnight_purple
+          ANIMATION: none
+          NAME: "KRAZYKITTY // SYSTEM"
+
+      - name: Apply the ultraviolet palette
+        run: >-
+          python .github/scripts/style_profile_stats.py
+          --source profile-summary-card-output/midnight_purple
+          --output assets/stats
+
+      - name: Validate generated SVG assets
+        run: python .github/scripts/style_profile_stats.py --check assets/stats
+
+      - name: Upload validated SVG artifact
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ultraviolet-profile-statistics
+          path: assets/stats/*.svg
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    needs: generate-artifact
+    if: github.repository == 'krazykitty2503/krazykitty2503'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out the profile repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Download generated SVG artifact
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ultraviolet-profile-statistics
+          path: .generated-profile-statistics
+
+      - name: Verify the trusted publisher
+        run: python -m unittest discover -s .github/scripts -p "test_*.py" -v
+
+      - name: Validate and publish fixed SVG assets
+        run: >-
+          python .github/scripts/style_profile_stats.py
+          --publish .generated-profile-statistics assets/stats
+
+      - name: Commit refreshed assets
+        run: |
+          if [ -z "$(git status --porcelain -- assets/stats)" ]; then
+            echo "Profile statistics are already current."
+            exit 0
+          fi
+
+          git config user.name "krazykitty-profile-stats[bot]"
+          git config user.email "259198082+krazykitty2503@users.noreply.github.com"
+          git add assets/stats
+          git commit -m "chore: refresh profile statistics"
+          git push
+
