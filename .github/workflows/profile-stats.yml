@@ -51,16 +51,16 @@ jobs:
         run: >-
           python .github/scripts/style_profile_stats.py
           --source profile-summary-card-output/midnight_purple
-          --output assets/stats
+          --output generated-summary
 
       - name: Validate generated summary cards
-        run: python .github/scripts/style_profile_stats.py --check assets/stats
+        run: python .github/scripts/style_profile_stats.py --check generated-summary
 
       - name: Upload validated summary-card artifact
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ultraviolet-summary-cards
-          path: assets/stats/*.svg
+          path: generated-summary/*.svg
           if-no-files-found: error
           retention-days: 1
 
