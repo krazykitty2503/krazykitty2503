@@ -120,7 +120,7 @@ I'm still learning, still experimenting and definitely still breaking things alo
 <img src="assets/stats/languages-by-commit.svg"
      alt="KrazyKitty top languages by commit"
      width="49%" />
-<img src="assets/stats/activity-streak.svg"
+<img src="assets/stats/activity-streak.svg?v=2"
      alt="KrazyKitty activity streak and aggregate private repository statistics"
      width="49%" />
 
