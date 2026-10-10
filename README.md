@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/krazykitty-ultraviolet-banner.png"
+  <img src="assests/krazykitty-ultraviolet-banner.png"
        alt="KRAZYKITTY // ULTRAVIOLET SYSTEM"
        width="100%" />
 </div>
