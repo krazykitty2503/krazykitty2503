@@ -138,7 +138,7 @@ An interconnected collection of projects, experiments, infrastructure and future
 
 | Project | Mission | Stage |
 |:---|:---|:---|
-| 💜 **KRAZY//CORE** | Equicord customisation, plugins and visual engines | Development |
+| 💜 **KRAZY//CORD** | Equicord customisation, plugins and visual engines | Development |
 | 🐧 **KERNEL//KITTY** | Debian homelab and server infrastructure | Operational / Evolving |
 | 📡 **KERNEL//SENTINEL** | Raspberry Pi monitoring console | Planned / Configuration |
 | 🤖 **KITTY//RELAY** | Telegram AI and developer automation | Development |
