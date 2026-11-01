@@ -1,19 +1,15 @@
 <div align="center">
   <img src="assests/krazykitty-ultraviolet-banner.png" alt="KRAZYKITTY // ULTRAVIOLET SYSTEM — cybersecurity, development, systems, AI and homelab" width="100%" />
-
-  # 💜 KRAZYKITTY // DEVELOPMENT UNIVERSE
-
-  **SYSTEMS • SECURITY • INFRASTRUCTURE • AI**
-
-  **Computer Science Student · Cybersecurity Analyst · Python Developer**
-
-  *Born to customise. Built to stand out.*
-
-  [![Portfolio](https://img.shields.io/badge/PORTFOLIO-KrazyKitty.dev-8B5CF6?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://krazykitty.dev)
-  [![GitHub](https://img.shields.io/badge/GITHUB-krazykitty2503-170D2B?style=for-the-badge&logo=github&logoColor=D8B4FE)](https://github.com/krazykitty2503)
-  [![Hugging Face](https://img.shields.io/badge/HUGGING_FACE-KrazyKitty-A855F7?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/KrazyKitty)
-
-  **[ CURIOSITY ENABLED ] · [ ALWAYS LEARNING ] · [ NEKO PROTOCOL ACTIVE ]**
+  <h1>💜 KRAZYKITTY // DEVELOPMENT UNIVERSE</h1>
+  <p><strong>SYSTEMS • SECURITY • INFRASTRUCTURE • AI</strong></p>
+  <p><strong>Computer Science Student · Cybersecurity Analyst · Python Developer</strong></p>
+  <p><em>Born to customise. Built to stand out.</em></p>
+  <p>
+    <a href="https://krazykitty.dev"><img alt="Portfolio" src="https://img.shields.io/badge/PORTFOLIO-KrazyKitty.dev-8B5CF6?style=for-the-badge&logo=firefoxbrowser&logoColor=white" /></a>
+    <a href="https://github.com/krazykitty2503"><img alt="GitHub" src="https://img.shields.io/badge/GITHUB-krazykitty2503-170D2B?style=for-the-badge&logo=github&logoColor=D8B4FE" /></a>
+    <a href="https://huggingface.co/KrazyKitty"><img alt="Hugging Face" src="https://img.shields.io/badge/HUGGING_FACE-KrazyKitty-A855F7?style=for-the-badge&logo=huggingface&logoColor=white" /></a>
+  </p>
+  <p><strong>[ CURIOSITY ENABLED ] · [ ALWAYS LEARNING ] · [ NEKO PROTOCOL ACTIVE ]</strong></p>
 </div>
 
 ---
@@ -150,19 +146,14 @@ My approach is to **design conservatively, test changes, document decisions and 
 ## 08 // CONNECT & COLLABORATE 🌐
 
 <div align="center">
-
-I'm interested in **cybersecurity, software engineering, systems architecture, AI research and interesting technical collaborations**.
-
-[![Website](https://img.shields.io/badge/WEBSITE-KrazyKitty.dev-8B5CF6?style=for-the-badge)](https://krazykitty.dev)
-[![GitHub](https://img.shields.io/badge/GITHUB-@krazykitty2503-170D2B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/krazykitty2503)
-[![Hugging Face](https://img.shields.io/badge/AI_RESEARCH-Hugging_Face-A855F7?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/KrazyKitty)
-
----
-
-### 💜 STILL LEARNING // STILL BUILDING // STILL EVOLVING
-
-**KRAZYKITTY — BORN TO CUSTOMISE. BUILT TO STAND OUT.**
-
-🐱 [ SYSTEM ONLINE ] // [ NEKO PROTOCOL ACTIVE ] // [ CURIOSITY: INFINITE ]
-
+  <p>I'm interested in <strong>cybersecurity, software engineering, systems architecture, AI research and interesting technical collaborations</strong>.</p>
+  <p>
+    <a href="https://krazykitty.dev"><img alt="Website" src="https://img.shields.io/badge/WEBSITE-KrazyKitty.dev-8B5CF6?style=for-the-badge" /></a>
+    <a href="https://github.com/krazykitty2503"><img alt="GitHub" src="https://img.shields.io/badge/GITHUB-@krazykitty2503-170D2B?style=for-the-badge&logo=github&logoColor=white" /></a>
+    <a href="https://huggingface.co/KrazyKitty"><img alt="Hugging Face" src="https://img.shields.io/badge/AI_RESEARCH-Hugging_Face-A855F7?style=for-the-badge&logo=huggingface&logoColor=white" /></a>
+  </p>
+  <hr />
+  <h3>💜 STILL LEARNING // STILL BUILDING // STILL EVOLVING</h3>
+  <p><strong>KRAZYKITTY — BORN TO CUSTOMISE. BUILT TO STAND OUT.</strong></p>
+  <p>🐱 [ SYSTEM ONLINE ] // [ NEKO PROTOCOL ACTIVE ] // [ CURIOSITY: INFINITE ]</p>
 </div>
