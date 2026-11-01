@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assests/krazykitty-ultraviolet-banner.png" alt="KRAZYKITTY // ULTRAVIOLET SYSTEM — cybersecurity, development, systems, AI and homelab" width="100%" />
+  <img src="assests/krazykitty-ultraviolet-system-banner.png" alt="KRAZYKITTY // ULTRAVIOLET SYSTEM — cybersecurity, development, systems, AI and homelab" width="100%" />
   <h1>💜 KRAZYKITTY // DEVELOPMENT UNIVERSE</h1>
   <p><strong>SYSTEMS • SECURITY • INFRASTRUCTURE • AI</strong></p>
   <p><strong>Computer Science Student · Cybersecurity Analyst · Python Developer</strong></p>
