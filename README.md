@@ -2,7 +2,7 @@
   <img src="assests/krazykitty-ultraviolet-system-banner.png" alt="KRAZYKITTY // ULTRAVIOLET SYSTEM — cybersecurity, development, systems, AI and homelab" width="100%" />
   <h1>💜 KRAZYKITTY // DEVELOPMENT UNIVERSE</h1>
   <p><strong>SYSTEMS • SECURITY • INFRASTRUCTURE • AI</strong></p>
-  <p><strong>Computer Science Student · Cybersecurity Analyst · Python Developer</strong></p>
+  <p><strong> Cybersecurity Analyst · Python Developer</strong></p>
   <p><em>Born to customise. Built to stand out.</em></p>
   <p>
     <a href="https://krazykitty.dev"><img alt="Portfolio" src="https://img.shields.io/badge/PORTFOLIO-KrazyKitty.dev-8B5CF6?style=for-the-badge&logo=firefoxbrowser&logoColor=white" /></a>
